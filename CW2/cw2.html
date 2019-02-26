@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CW 2 - NFA, DFA and Regex for (1|0)*00 </title>
+</head>
+
+<body>
+
+<h2 id=title></h2>
+
+
+<b>Input Number: </b><input id=final type=text value=0 onChange="test()" style="width:30px">
+<pre id=out></pre>
+<hr/>
+<br>
+<style>
+    table { 
+        border-collapse: collapse; 
+        margin: 0 50px; 
+    }
+    th { 
+        color: blue; 
+        padding: 5px 12px; 
+    }
+    td { 
+        border: 1px solid blue; 
+        padding: 5px 12px; 
+        text-align: center; 
+    }
+</style>
+<b>NFA</b>
+<table>
+<tr><th></th><th>0</th><th>1</th></tr>
+<tr><th>> a</th><td>ab</td><td>a</td></tr>
+<tr><th>&emsp;b</th><td>c</td><td>ϕ</td></tr>
+<tr><th>* c</th><td>ϕ</td><td>ϕ</td></tr>
+</table>
+
+<b>DFA</b>
+<table>
+<tr><th></th><th>0</th><th>1</th></tr>
+<tr><th>> a</th><td>ab</td><td>a</td></tr>
+<tr><th>&emsp;ab</th><td>abc</td><td>a</td></tr>
+<tr><th>* abc</th><td>abc</td><td>a</td></tr>
+</table>
+<br>
+<hr/>
+<pre id=sample></pre>
+
+<hr/>
+
+<script>
+"use strict";
+function union(a, b) { //set operation using strings
+    let s = a
+    for (let x of b) if (!a.includes(x)) s += x
+    return s
+}
+function intersect(a, b) {
+    let s = ''
+    for (let x of b) if (a.includes(x)) s += x
+    return s
+}
+function delta(q, c) { // (1|0)*00      //NFA
+    if (q=='a' && c=='0') return 'ab'
+    if (q=='a' && c=='1') return 'a'
+    if (q=='b' && c=='0') return 'c' 
+    return '';  //default -- no transition
+}
+function delta2(q, c) { // (1|0)*00     //DFA
+    if (q=='a' && c=='0') return 'ab'
+    if (q=='a' && c=='1') return 'a'
+    if (q=='a' || q=='b' && c=='0') return 'abc' 
+    if (q=='a' || q=='b' && c=='1') return 'a' 
+    if (q=='a' || q=='b'|| q=='c'  && c=='0') return 'abc' 
+    if (q=='a' || q=='b'|| q=='c'  && c=='1') return 'a' 
+    return '';  //default -- no transition
+}
+
+function accept(w, F='c', Q='a') {      //NFA
+    //w: input String
+    //F: final state(s)
+    //Q: current state(s)
+    let i = 0, txt = Q
+    while (i < w.length) {
+        let c = w[i], T=''
+        for (let q of Q) 
+            T = union(T, delta(q, c))
+        Q = T
+        if (Q == '') break
+        i++; txt += ", "+c+" -> "+Q+'\n'+Q
+    }
+
+    return intersect(Q, F).length > 0
+
+}
+function accept2(w, F='c', Q='a') {       //DFA
+    //w: input String
+    //F: final state(s)
+    //Q: current state(s)
+    let i = 0, txt = Q
+    while (i < w.length) {
+        let c = w[i], T=''
+        for (let q of Q) 
+            T = union(T, delta2(q, c))
+        Q = T
+        if (Q == '') break
+        i++; txt += ", "+c+" -> "+Q+'\n'+Q
+    }
+
+    return intersect(Q, F).length > 0
+}
+function test() {
+    let reg = /00$/
+    let regEx = [], dfa = [], nfa = [];
+    for (let n=1; n<final.value; n++) {
+        let w = n.toString(2) 
+        console.log(w)
+        if (reg.test(w)) 
+        regEx.push(n);
+        if (accept2(w)) 
+        dfa.push(n);
+        if (accept(w)) 
+        nfa.push(n);
+    }
+    out.innerHTML = "NFA:&emsp;&emsp; [" + nfa + "]" + 
+    '<br>' + "DFA:&emsp;&emsp; [" + dfa + "]" + '<br>' +"Regex: [" + regEx + "]" 
+}
+    title.innerText = document.title;
+    sample.innerText = delta+'\n'+accept+'\n'+delta2+'\n'+accept2;;
+    test();
+</script>
+</body>
+</html>
+
