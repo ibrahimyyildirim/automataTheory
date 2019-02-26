@@ -125,11 +125,13 @@ function test() {
         if (accept(w)) 
         nfa.push(n);
     }
-    out.innerHTML = "NFA:&emsp;&emsp; [" + nfa + "]" + 
-    '<br>' + "DFA:&emsp;&emsp; [" + dfa + "]" + '<br>' +"Regex: [" + regEx + "]" 
+    out.innerHTML = 
+    "NFA:&emsp;&emsp; [" + nfa + "]" +  '<br>' + 
+    "DFA:&emsp;&emsp; [" + dfa + "]" + '<br>' +
+    "Regex: [" + regEx + "]" 
 }
     title.innerText = document.title;
-    sample.innerText = delta+'\n'+accept+'\n'+delta2+'\n'+accept2;;
+    sample.innerText = delta+'\n'+accept+'\n'+delta2+'\n'+accept2 +'\n'+ test;
     test();
 </script>
 </body>
