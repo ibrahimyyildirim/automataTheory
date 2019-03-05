@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>CW 3 - Regular Expressions </title>
+  <style>
+   /*.found { border: solid 1px } */
+    #pat { width: 400px; }
+    #inp { width: 400px; }
+    .found { color: rgb(255, 115, 0); }
+  </style>
+</head>
+
+<body>
+<h2 id=title></h2>
+<b><a href="https://ibrahimyyildirim.github.io/automataTheory/">My Repo</a><br></b>
+<p>
+
+
+Pattern: <input type=text id=pat onKeyUp="checkRE()">&emsp; 
+<select id=menu onChange="setValues()"><option> Ex1
+<option>Ex2<option>Letter<option>Number<option>Suffix<option>x+letter
+</select> 
+</p>
+<p>
+Input:&emsp;<input type=text id=inp onKeyUp="checkRE()">
+</p>
+<p id=out></p>
+
+<hr />
+<b>Sample code</b>
+<pre id=sample></pre>
+<hr />
+<p>Ref: <a href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html" target="ExternalDocument">Term project by Emrah Tema</a>
+</p>
+
+<script>
+"use strict";
+const ptrn = ["Sultan(?=Fatih|Mehmet)","([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}","[a-z]", "[0-9]{4}", "d[iuü][km]", "x[a-z]"];
+const word = 
+    ["SultanFatih - SultanMehmet - SultanAhmet - FatihSultan",
+    "Fatih Sultan Mehmet 29/03/1432'de doğmuştur, 29/05/1453 tarihinde İstanbul'u fethetmiştir."
+    ,"Bir iki üç dört beş altı ", "Bugün 23/6/2018 saat 14",
+     "Geldim gördüm buldum...", "Excellent expression tax "];
+function setValues() {
+    pat.value = ptrn[menu.selectedIndex];
+    inp.value = word[menu.selectedIndex];
+    checkRE();
+}
+function checkRE() {
+    if (pat.value && inp.value) {
+        const exp = new RegExp(pat.value,'g');
+        const str = "<span class=found>$&</span>";
+        out.innerHTML = inp.value.replace(exp, str);
+    }
+}
+    sample.innerText = setValues.toString()+"\n"+checkRE.toString();
+    title.innerText = document.title; setValues();
+</script>
+
+</body>
+</html>
