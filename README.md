@@ -1,4 +1,7 @@
 # automataTheory
+# HomeWorks
+[HW1 - Syntax Highlighter](https://ibrahimyyildirim.github.io/automataTheory/HW1/hw1.html)<br>
+
 # ClassWorks
 [CW3 - Regular Expression](https://ibrahimyyildirim.github.io/automataTheory/CW3/cw3.html)<br>
 [CW2 - NFA, DFA and RegEx](https://ibrahimyyildirim.github.io/automataTheory/CW2/cw2.html)<br>
