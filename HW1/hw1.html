@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="setValues()" ;>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>HW 1 </title>
+        <style>
+            .stringColor {
+                color: rgb(255, 0, 0);
+            }
+
+            .arrayColor {
+                color: rgb(18, 94, 209);
+            }
+
+            .stringColor .arrayColor {
+                color: rgb(255, 0, 0);
+            }
+
+            .arrayColor .stringColor {
+                color: rgb(18, 94, 209);
+            }
+
+            .bordered {
+                width: 545px;
+                height: 170px;
+                border: 2px solid black;
+
+            }
+        </style>
+    </head>
+    <div class="header">
+        <h2>HW 1 - Syntax Highlighter</h2>
+        🔗<b><a href="https://ibrahimyyildirim.github.io/automataTheory/">My Repo</a></b><br><br>
+    </div>
+    <b> Input:</b><br><textarea style="resize: none; border:solid 2px black;" type=text rows="10" cols="75" id=area
+        onKeyUp="checkRE();" ;></textarea>
+    </p>
+    <b> Output:</b>
+    <div class="bordered">
+        <pre id=out></pre>
+    </div><br>
+    <hr>
+    <b>Sample Code</b>
+    <pre id=sample></pre>
+    <hr>
+    <i><p>Ref:</i> <a href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html" target="ExternalDocument">
+            Term project by Emrah Tema</a>
+        // <a href="https://regexr.com/" target="ExternalDocument">
+            RegEx Test, Build and Tricks</a>
+
+    </p>
+    <script>
+        function setValues() {
+            area.value = 'let poetry   = "Sanma şâhım herkesi sen sâdıkâne yâr olur "+'
+            area.value += '\n               "Herkesi sen dost mu sandın belki ol ağyâr olur"+'
+            area.value += '\n               "Sâdıkâne belki ol bu âlemde dildâr olur"+'
+            area.value += '\n               "Yâr olur ağyâr olur dildâr olur serdâr olur".'
+            area.value += "\n\nvar progLang = ['Java', 'ABAP', 'JS', 'C++'];\nvar mobile   = [\"iOS\",\"Android\"];\nvar est      = [1985, 1999, 2002, 2012];"
+            checkRE();
+        }
+        var code = "";
+        function checkRE() {
+            const exp = new RegExp('("|\').*?("|\')','g');               // RegEx for string
+            const str = "<span class=arrayColor>$&</span>";
+            const exp2 = new RegExp('(\\[[\\W\\s\\d\\D]+?\\]+?)','g');   // RegEx for array
+            const str2 = "<span class=stringColor>$&</span>";
+            code = area.value.replace(exp, str);
+            code = code.replace(exp2, str2);
+            out.innerHTML = code; 
+        }
+        sample.innerText = checkRE.toString();
+    </script>
+
+
+</body>
+
+</html>
