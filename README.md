@@ -1,4 +1,4 @@
-# automataTheory
+## Formal Languages and Automata Theory
 ### HomeWorks
 [HW1 - Syntax Highlighter](https://ibrahimyyildirim.github.io/automataTheory/HW1/hw1.html)<br>
 
