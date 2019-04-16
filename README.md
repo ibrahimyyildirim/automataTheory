@@ -4,6 +4,7 @@
 [HW2 - Expression Parser](https://ibrahimyyildirim.github.io/automataTheory/HW2/hw2.html)<br>
 
 ### ClassWorks
+[CW7 - microJ3 Parser](https://ibrahimyyildirim.github.io/automataTheory/CW7/cw7.html)<br>
 [CW6 - PDA for Addition](https://ibrahimyyildirim.github.io/automataTheory/CW6/cw6.html)<br>
 [CW5 - Expression Parser](https://ibrahimyyildirim.github.io/automataTheory/CW5/cw5.html)<br>
 [CW4 - Contex-free Grammar](https://ibrahimyyildirim.github.io/automataTheory/CW4/cw4.html)<br>
