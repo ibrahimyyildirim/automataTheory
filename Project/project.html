@@ -7,21 +7,28 @@
   <title> </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-  input[type=text], select {
-  width: 100%;
-  padding: 12px 1px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+    input[type=text],
+    select {
+      width: 100%;
+      padding: 12px 1px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
 
-div {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
+    dd {
+      display: block;
+      margin-inline-start: 0px;
+    }
+
+    div {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 1px;
+    }
+
     .found {
       background-color: #FFFF00
     }
@@ -54,7 +61,7 @@ div {
     }
 
     h2 {
-      font-size: 1,5em;
+      font-size: 1, 5em;
       text-align: center;
     }
 
@@ -63,7 +70,7 @@ div {
     .accordion dt>a {
       text-align: center;
       font-weight: 700;
-      padding: 2em;
+      padding: 1.8em;
       display: block;
       text-decoration: none;
       color: #fff;
@@ -73,12 +80,13 @@ div {
     .accordion dd {
       background-color: #1abc9c;
       color: #fafafa;
-      font-size: 1em;
+      font-size: 14px;
       line-height: 1.5em;
+      overflow: auto;
     }
 
     .accordion dd>p {
-      padding: 1em 2em 1em 2em;
+      padding: em 2em 1em 2em;
     }
 
     .accordion {
@@ -88,7 +96,7 @@ div {
     }
 
     .container {
-      max-width: 960px;
+      max-width: 700px;
       margin: 0 auto;
       padding: 0em 0 0em 0;
     }
@@ -130,7 +138,7 @@ div {
 
     @media all {
       .accordionItem {
-        max-height: 50em;
+        max-height: 25em;
         -moz-transition: max-height 1s;
         -o-transition: max-height 1s;
         -webkit-transition: max-height 1s;
@@ -274,7 +282,6 @@ div {
 
     table {
       border-collapse: collapse;
-      width: 65%;
     }
 
     td,
@@ -291,10 +298,13 @@ div {
 
     <h2>Regular Expression Tester</h2>
     <b> RegEx Pattern:</b><br>
-    <input type="text" id="pattern" value="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}" onKeyUp="checkRE()"placeholder="Your RegEx Pattern.." /><br>
-    <b> Input:</b><br><textarea style="resize: none; " type=text rows="5" id=area onKeyUp="checkRE();" placeholder="Your Text Here.." ;></textarea>
-      <b> Output:</b><br>
-    <pre id=out></pre>
+    <input type="text" id="pattern" value="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"
+      onKeyUp="checkRE()" placeholder="Your RegEx Pattern.." /><br>
+    <b> Input:</b><br>
+    <textarea style="resize: none;" type=text rows="3" id=area onKeyUp="checkRE();" placeholder="Your Text Here.."
+      ;></textarea>
+    <b> Output:</b><br>
+    <p id=out></p>
     <div class="accordion">
       <dl>
         <dt><a class="accordionTitle" href="#">What is a Regular Expression ? (RegEx)</a></dt>
@@ -317,7 +327,7 @@ div {
             <font color="black"><span class=found>05551234567</span></font></br></br>
             <b>IP Address Pattern:</b></br>
             ^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</br>
-            <font color="black"><span class=found>192.168.1.1</span></font></br>    
+            <font color="black"><span class=found>192.168.1.1</span></font></br>
           </p>
         </dd>
         <dt><a href="#" class="accordionTitle">Cheatsheet</a></dt>
@@ -353,12 +363,12 @@ div {
                 <td>character between a & g</td>
               </tr>
               <tr>
-                  <tr>
-                      <td>&nbsp;</td>
-                      <td> </td>
-                    </tr>
-                <td><b>Anchors</b></td>
-                <td></td>
+              <tr>
+                <td>&nbsp;</td>
+                <td> </td>
+              </tr>
+              <td><b>Anchors</b></td>
+              <td></td>
               </tr>
               <tr>
                 <td>^abc$</td>
@@ -369,12 +379,12 @@ div {
                 <td>word, not-word boundary</td>
               </tr>
               <tr>
-                  <tr>
-                      <td>&nbsp;</td>
-                      <td> </td>
-                    </tr>
-                <td><b>Escaped characters</b></td>
-                <td></td>
+              <tr>
+                <td>&nbsp;</td>
+                <td> </td>
+              </tr>
+              <td><b>Escaped characters</b></td>
+              <td></td>
               </tr>
               <tr>
                 <td>\.\*\\</td>
@@ -385,9 +395,9 @@ div {
                 <td>tab, linefeed, carriage return</td>
               </tr>
               <tr>
-                  <td>&nbsp;</td>
-                  <td> </td>
-                </tr>
+                <td>&nbsp;</td>
+                <td> </td>
+              </tr>
               <tr>
                 <td><b> Groups & Lookaround</b></td>
                 <td></td>
@@ -401,12 +411,12 @@ div {
                 <td> non-capturing group</td>
               </tr>
               <tr>
-                  <tr>
-                      <td>&nbsp;</td>
-                      <td> </td>
-                    </tr>
-                <td><b>Quantifiers & Alternation</b></td>
-                <td></td>
+              <tr>
+                <td>&nbsp;</td>
+                <td> </td>
+              </tr>
+              <td><b>Quantifiers & Alternation</b></td>
+              <td></td>
               </tr>
               <tr>
                 <td>a*a+a?</td>
@@ -421,29 +431,33 @@ div {
                 <td>between one & three</td>
               </tr>
               <tr>
-                  <td>ab|cd </td>
-                  <td>match ab or cd</td>
-                </tr>
+                <td>ab|cd </td>
+                <td>match ab or cd</td>
+              </tr>
             </table>
           </p>
         </dd>
-       
+
       </dl>
     </div>
   </div>
   <hr>
-</b>
-<p><i>Ref: </i>
-<a href="https://codepen.io/samsurysites/pen/qxHJK">    Template </a>,<a href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html#" 
->  Emrah Tema RegEx </a>,<a href="https://regexr.com/"
->  RegEx Tester</a> 
-</p>
+  </b>
+
+  <font size="2">
+    <center>
+      <p><i>Ref: <a href="https://codepen.io/samsurysites/pen/qxHJK"> Template </a>,<a
+            href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html#"> Emrah Tema RegEx </a>,<a
+            href="https://regexr.com/"> RegEx Tester</a> </i>
+      </p>
+    </center>
+  </font>
   <script>
 
-function setValues() {
-            area.value = "Fatih Sultan Mehmet was born in 29/03/1432."
-            checkRE();
-        }
+    function setValues() {
+      area.value = "Fatih Sultan Mehmet was born in 29/03/1432."
+      checkRE();
+    }
 
     function checkRE() {
       var pat = document.getElementById("pattern").value;
