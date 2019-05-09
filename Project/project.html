@@ -7,6 +7,17 @@
   <title> </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+      .button-success,
+        .button-error,
+        .button-warning,
+        .button-secondary {
+            color: white;
+            border-radius: 4px;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+            background: #2c3e50;
+        }
+
+
     input[type=text],
     select {
       width: 100%;
@@ -297,8 +308,8 @@
   <div class="container">
 
     <h2>Regular Expression Tester</h2>
-    <b> RegEx Pattern:</b><br>
-    <input type="text" id="pattern" value="([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}"
+    <b> RegEx Pattern:</b><button type="button" style="float: right;" class="button-success pure-button" onclick="clearRegex();">Clear RegEx</button><br>
+    <input type="text" id="pattern" value="[A-Z]|[0-9]"
       onKeyUp="checkRE()" placeholder="Your RegEx Pattern.." /><br>
     <b> Input:</b><br>
     <textarea style="resize: none;" type=text rows="3" id=area onKeyUp="checkRE();" placeholder="Your Text Here.."
@@ -316,16 +327,16 @@
         </dd>
         <dt><a href="#" class="accordionTitle">Useful Pattern</a></dt>
         <dd class="accordionItem accordionItemCollapsed">
-          <p><b>Date Format Pattern:</b></br>
+          <p><b>Date Format Pattern</b>&nbsp;<button  type="button" class="button-success pure-button" onclick="setButton1();">Try it</button></br>
             ([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}</br>
-            <font color="black"><span class=found>29/05/1453</span></font></br></br>
-            <b>Mail Pattern:</b></br>
-            ^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$</br>
+            <font color="black"><span class=found>29/05/1453</span></font></br></br>      
+            <b>Mail Pattern</b>&nbsp;<button type="button"  class="button-success pure-button"  onclick="setButton2();">Try it</button></br>
+            ([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})</br>
             <font color="black"><span class=found>muhibrahim.yildirim@stu.fsm.edu.tr</span></font></br></br>
-            <b>Phone Number Pattern:</b></br>
-            ^([0-9]{11})$</br>
+            <b>Phone Number Pattern</b>&nbsp;<button  type="button" class="button-success pure-button" onclick="setButton3();">Try it</button></br>
+            [\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}</br>
             <font color="black"><span class=found>05551234567</span></font></br></br>
-            <b>IP Address Pattern:</b></br>
+            <b>IP Address Pattern</b>&nbsp;<button type="button"  class="button-success pure-button"  onclick="setButton4();">Try it</button></br>
             ^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</br>
             <font color="black"><span class=found>192.168.1.1</span></font></br>
           </p>
@@ -455,7 +466,32 @@
   <script>
 
     function setValues() {
-      area.value = "Fatih Sultan Mehmet was born in 29/03/1432."
+      area.value = "This pattern shows only UPPERCASE LETTERS and numbers(2019), not lowercase letters."
+      checkRE();
+    }
+    function clearRegex() {
+      pattern.value = ""
+      area.value = ""
+      checkRE();
+    }
+    function setButton1() {
+      pattern.value = "([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}"
+      area.value = "Fatih Sultan Mehmet was born in 29/03/1432 and he conquered Istanbul on 29/05/1453."
+      checkRE();
+    }
+    function setButton2() {
+      pattern.value = "([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})"
+      area.value = "You can contact me with this ' muhibrahim.yildirim@stu.fsm.edu.tr ' mail address."
+      checkRE();
+    }
+    function setButton3() {
+      pattern.value = "[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}"
+      area.value = "Contact: 05051234567 calls are charged at local call rates."
+      checkRE();
+    }
+    function setButton4() {
+      pattern.value = "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
+      area.value = "Open the Command Prompt, type the command ipconfig and press Enter. This command lists all the network adapters (both Ethernet and wireless) found on your Windows computer, and it shows details about each of them. For ex: IPv4 Address : 192.168.1.1"
       checkRE();
     }
 
