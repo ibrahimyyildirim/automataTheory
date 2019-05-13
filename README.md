@@ -7,8 +7,11 @@
 [HW1 - Syntax Highlighter](https://ibrahimyyildirim.github.io/automataTheory/HW1/hw1.html)<br>
 [HW2 - Expression Parser](https://ibrahimyyildirim.github.io/automataTheory/HW2/hw2.html)<br>
 [HW3 - microJ](https://ibrahimyyildirim.github.io/automataTheory/HW3/hw3.html)<br>
+[HW4 - Term Project Demo](https://ibrahimyyildirim.github.io/automataTheory/Project/project.html)<br>
 
 ### ClassWorks
+[CW10 - Graph Algorithms](https://ibrahimyyildirim.github.io/automataTheory/CW10/cw10.html)<br>
+[CW9 - Term Project First version](https://ibrahimyyildirim.github.io/automataTheory/)<br>
 [CW8 - Term Project Proposal](https://ibrahimyyildirim.github.io/automataTheory/)<br>
 [CW7 - microJ3 Parser](https://ibrahimyyildirim.github.io/automataTheory/CW7/cw7.html)<br>
 [CW6 - PDA for Addition](https://ibrahimyyildirim.github.io/automataTheory/CW6/cw6.html)<br>
