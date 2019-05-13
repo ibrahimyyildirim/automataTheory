@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
-  <title> </title>
+  <title> Regular Expression Tester </title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
       .button-success,
@@ -16,8 +16,6 @@
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
             background: #2c3e50;
         }
-
-
     input[type=text],
     select {
       width: 100%;
@@ -28,56 +26,43 @@
       border-radius: 4px;
       box-sizing: border-box;
     }
-
     dd {
       display: block;
       margin-inline-start: 0px;
     }
-
     div {
       border-radius: 5px;
       background-color: #f2f2f2;
       padding: 1px;
     }
-
     .found {
       background-color: #FFFF00
     }
-
-
     @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
-
     * {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
     }
-
     textarea {
       border: 1px solid #999999;
       width: 100%;
       margin: 5px 0;
       padding: 3px;
     }
-
     body {
       font-family: 'Lato';
     }
-
     .bordered {
       width: 100%;
       height: 170px;
       border: 2px solid black;
-
     }
-
     h2 {
       font-size: 1, 5em;
       text-align: center;
     }
-
     .accordion dl {}
-
     .accordion dt>a {
       text-align: center;
       font-weight: 700;
@@ -87,7 +72,6 @@
       color: #fff;
       -webkit-transition: background-color 0.5s ease-in-out;
     }
-
     .accordion dd {
       background-color: #1abc9c;
       color: #fafafa;
@@ -95,28 +79,23 @@
       line-height: 1.5em;
       overflow: auto;
     }
-
     .accordion dd>p {
       padding: em 2em 1em 2em;
     }
-
     .accordion {
       position: relative;
       background-color: #16a085;
       size: relative;
     }
-
     .container {
       max-width: 700px;
       margin: 0 auto;
       padding: 0em 0 0em 0;
     }
-
     .accordionTitle {
       background-color: #22313F;
       border-bottom: 1px solid #2c3e50;
     }
-
     .accordionTitle:before {
       content: "+";
       font-size: 1.5em;
@@ -127,26 +106,21 @@
       -webkit-transition: -webkit-transform 0.3s ease-in-out;
       transition: transform 0.3s ease-in-out;
     }
-
     .accordionTitle:hover {
       background-color: #2c3e50;
     }
-
     .accordionTitleActive {
       background-color: #34495e;
     }
-
     .accordionTitleActive:before {
       -webkit-transform: rotate(-225deg);
       -moz-transform: rotate(-225deg);
       transform: rotate(-225deg);
     }
-
     .accordionItem {
       height: auto;
       overflow: hidden;
     }
-
     @media all {
       .accordionItem {
         max-height: 25em;
@@ -156,7 +130,6 @@
         transition: max-height 1s;
       }
     }
-
     @media screen and (min-width: 48em) {
       .accordionItem {
         max-height: 100%;
@@ -166,11 +139,9 @@
         transition: max-height 0.5s;
       }
     }
-
     .accordionItemCollapsed {
       max-height: 0;
     }
-
     .animateIn {
       -webkit-animation-name: accordionIn;
       -webkit-animation-duration: 0.65s;
@@ -194,7 +165,6 @@
       animation-fill-mode: both;
       animation-delay: 0s;
     }
-
     .animateOut {
       -webkit-animation-name: accordionOut;
       -webkit-animation-duration: 0.75s;
@@ -218,83 +188,69 @@
       animation-fill-mode: both;
       animation-delay: 0s;
     }
-
     @-webkit-keyframes accordionIn {
       0% {
         opacity: 0;
         -webkit-transform: scale(0.8);
       }
-
       100% {
         opacity: 1;
         -webkit-transform: scale(1);
       }
     }
-
     @-moz-keyframes accordionIn {
       0% {
         opacity: 0;
         -moz-transform: scale(0.8);
       }
-
       100% {
         opacity: 1;
         -moz-transform: scale(1);
       }
     }
-
     @keyframes accordionIn {
       0% {
         opacity: 0;
         transform: scale(0.8);
       }
-
       100% {
         opacity: 1;
         transform: scale(1);
       }
     }
-
     @-webkit-keyframes accordionOut {
       0% {
         opacity: 1;
         -webkit-transform: scale(1);
       }
-
       100% {
         opacity: 0;
         -webkit-transform: scale(0.8);
       }
     }
-
     @-moz-keyframes accordionOut {
       0% {
         opacity: 1;
         -moz-transform: scale(1);
       }
-
       100% {
         opacity: 0;
         -moz-transform: scale(0.8);
       }
     }
-
     @keyframes accordionOut {
       0% {
         opacity: 1;
         transform: scale(1);
       }
-
       100% {
         opacity: 0;
         transform: scale(0.8);
       }
     }
-
     table {
       border-collapse: collapse;
     }
-
     td,
     th {
       text-align: left;
@@ -310,9 +266,9 @@
     <h2>Regular Expression Tester</h2>
     <b> RegEx Pattern:</b><button type="button" style="float: right;" class="button-success pure-button" onclick="clearRegex();">Clear RegEx</button><br>
     <input type="text" id="pattern" value="[A-Z]|[0-9]"
-      onKeyUp="checkRE()" placeholder="Your RegEx Pattern.." /><br>
+      onKeyUp="checkRegEx()" placeholder="Your RegEx Pattern.." /><br>
     <b> Input:</b><br>
-    <textarea style="resize: none;" type=text rows="3" id=area onKeyUp="checkRE();" placeholder="Your Text Here.."
+    <textarea style="resize: none;" type=text rows="3" id=area onKeyUp="checkRegEx();" placeholder="Your Text Here.."
       ;></textarea>
     <b> Output:</b><br>
     <p id=out></p>
@@ -453,44 +409,45 @@
   <font size="2">
     <center>
       <p><i>Ref: <a href="https://codepen.io/samsurysites/pen/qxHJK"> Template </a>,<a
-            href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html#"> Emrah Tema RegEx </a>,<a
+            href="https://emrahtema.github.io/Automata/regexp/EmrahTema_Regexp.html#"> Emrah Tema</a>,<a
             href="https://regexr.com/"> RegEx Tester</a> </i>
-      </p>
+     <i> &emsp;*<a href="https://ibrahimyyildirim.github.io/automataTheory/"> MyRepo</a> </i>
+  </p>
+
+    
     </center>
   </font>
   <script>
-
     function setValues() {
       area.value = "This pattern shows only UPPERCASE LETTERS and numbers(2019)."
-      checkRE();
+      checkRegEx();
     }
     function clearRegex() {
       pattern.value = ""
       area.value = ""
-      checkRE();
+      checkRegEx();
     }
     function setButton1() {
       pattern.value = "([0-2][0-9]|(3)[0-1])(\\/)(((0)[0-9])|((1)[0-2]))(\\/)\\d{4}"
       area.value = "Fatih Sultan Mehmet was born in 29/03/1432 and he conquered Istanbul on 29/05/1453."
-      checkRE();
+      checkRegEx();
     }
     function setButton2() {
       pattern.value = "([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})"
       area.value = "You can contact me with this ' muhibrahim.yildirim@stu.fsm.edu.tr ' mail address."
-      checkRE();
+      checkRegEx();
     }
     function setButton3() {
       pattern.value = "[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}"
       area.value = "Contact: 05051234567 calls are charged at local call rates."
-      checkRE();
+      checkRegEx();
     }
     function setButton4() {
       pattern.value = "(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)"
       area.value = "Open the Command Prompt, type the command ipconfig and press Enter. This command lists all the network adapters (both Ethernet and wireless) found on your Windows computer, and it shows details about each of them. For ex: IPv4 Address : 192.168.1.1"
-      checkRE();
+      checkRegEx();
     }
-
-    function checkRE() {
+    function checkRegEx() {
       var pat = document.getElementById("pattern").value;
       const exp = new RegExp(pat, 'g');
       const str = "<span class=found>$&</span>";
@@ -502,7 +459,6 @@
         return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
       }
       var hasClass, addClass, removeClass;
-
       if ('classList' in document.documentElement) {
         hasClass = function (elem, c) {
           return elem.classList.contains(c);
@@ -527,7 +483,6 @@
           elem.className = elem.className.replace(classReg(c), ' ');
         };
       }
-
       function toggleClass(elem, c) {
         var fn = hasClass(elem, c) ? removeClass : addClass;
         fn(elem, c);
